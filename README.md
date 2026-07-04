@@ -34,7 +34,7 @@ A centralized project management system for tracking personal projects, work pro
 
 ```
 project-hub/
-├── lit-app/                    # Frontend (Lit.js + Vite)
+├── frontend/                    # Frontend (Lit.js + Vite)
 │   ├── src/
 │   │   ├── components/        # Lit web components
 │   │   └── index.html
@@ -43,7 +43,7 @@ project-hub/
 │   ├── vite.config.js
 │   └── .nvmrc                 # Node version lock
 │
-└── lit-backend/               # Backend (Spring Boot)
+└── backend/               # Backend (Spring Boot)
     ├── src/
     │   ├── main/java/com/example/
     │   │   ├── Application.java
@@ -56,7 +56,7 @@ project-hub/
 ## Setup
 
 ### Prerequisites
-- **Node 18+** (check `.nvmrc` in lit-app)
+- **Node 18+** (check `.nvmrc` in frontend)
 - **Java 17+**
 - **pnpm** (install via `npm install -g pnpm` or `brew install pnpm`)
 - **Gradle** (bundled with `gradlew`, but `brew install gradle` works too)
@@ -64,7 +64,7 @@ project-hub/
 ### Frontend Setup
 
 ```bash
-cd lit-app
+cd frontend
 pnpm install
 pnpm dev
 ```
@@ -74,7 +74,7 @@ Runs on `http://localhost:5173`
 ### Backend Setup
 
 ```bash
-cd lit-backend
+cd backend
 ./gradlew bootRun
 ```
 
@@ -84,12 +84,12 @@ Runs on `http://localhost:8080`
 
 **Terminal 1 — Frontend:**
 ```bash
-cd lit-app && pnpm dev
+cd frontend && pnpm dev
 ```
 
 **Terminal 2 — Backend:**
 ```bash
-cd lit-backend && ./gradlew bootRun
+cd backend && ./gradlew bootRun
 ```
 
 Visit `http://localhost:5173` to access the application.
@@ -155,21 +155,21 @@ public class ProjectController {
 
 ### Frontend Build
 ```bash
-cd lit-app && pnpm build
+cd frontend && pnpm build
 # Output: dist/
 ```
 
 ### Backend Build
 ```bash
-cd lit-backend && ./gradlew build
-# Output: build/libs/lit-backend-1.0.0.jar
+cd backend && ./gradlew build
+# Output: build/libs/backend-1.0.0.jar
 ```
 
 ## Node & Java Version Management
 
 **Lock Node version:**
 ```bash
-echo "18.17.0" > lit-app/.nvmrc
+echo "18.17.0" > frontend/.nvmrc
 nvm use  # Auto-switches when entering directory
 ```
 
