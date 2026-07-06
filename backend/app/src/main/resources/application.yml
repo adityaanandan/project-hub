@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-1-us-west-2.pooler.supabase.com:5432/postgres
+    username: postgres.pmsujyrvnwycwohwhwhy
+    password: ${SUPABASE_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 8
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    schemas: public
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://pmsujyrvnwycwohwhwhy.supabase.co/auth/v1
+          jwk-set-uri: https://pmsujyrvnwycwohwhwhy.supabase.co/auth/v1/.well-known/jwks.json
